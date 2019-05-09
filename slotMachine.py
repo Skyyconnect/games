@@ -18,24 +18,16 @@ def draw(pull):
   
   
 def count(pull):
-  dollar = 0
-  at = 0
-  andSign = 0
-  percent = 0
-  hashTag = 0
-  for i in range(len(pull)):
-    if pull[i] == "$":
-      dollar +=1
-    elif pull[i] == "@":
-      at +=1
-    elif pull[i] == "&":
-      andSign +=1
-    elif pull[i] == "%":
-      percent +=1
-    elif pull[i] == "#":
-      hashTag +=1
-
-  return [dollar,at, andSign, percent, hashTag]
+  symbols = {
+    "dollar": 0,
+    "at": 0,
+    "andSign":0,
+    "percent":0,
+    "hashTag":0
+  }
+  for key in pull:
+      symbols[key] += 1
+  return [symbols.items()[i][1] for i in range(len(symbols.items()))];
 
 
 def spin(bet):
